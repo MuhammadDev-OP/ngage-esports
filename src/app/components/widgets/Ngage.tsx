@@ -1,5 +1,6 @@
 import React from "react";
 import Wrapper from "../shared/Wrapper";
+import News from "@/app/news/page";
 
 const Ngage = () => {
   return (
@@ -64,6 +65,10 @@ const Ngage = () => {
         <hr className="mt-10 border-t-2 border-gray-700" />{" "}
         {/* Added horizontal line */}
       </div>
+      <h1 className="text-center font-bold text-4xl mt-10">
+        Latest eSports News
+      </h1>
+      <News />
     </Wrapper>
   );
 };
