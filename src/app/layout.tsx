@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Barlow, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
         <Header />
 
         {children}
+        <Footer />
       </body>
     </html>
   );
