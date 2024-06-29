@@ -9,6 +9,7 @@
 }
 
 body {
+  @apply font-sans;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -16,6 +17,25 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-barlow font-bold;
+}
+
+.link-with-bar::before {
+  @apply block w-[500px] h-[2px] bg-gray-700 my-2;
+  content: "";
+}
+
+.link-with-bar1::after {
+  @apply block w-full h-[2px] bg-gray-700 mt-2;
+  content: "";
 }
 
 @layer utilities {
