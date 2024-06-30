@@ -19,7 +19,7 @@ const Clans = () => {
             Ngage.gg is the place to be.
           </p>
         </div>
-        <div className="grid grid-cols-4 mt-10 gap-4">
+        <div className="grid grid-cols-4 mt-10 gap-8">
           <div className="relative">
             <Image
               src={"/media/csgo.jpg"}
@@ -30,7 +30,7 @@ const Clans = () => {
             />
             <div className="absolute inset-0 top-[158px] flex items-center justify-center">
               <div className="bg-[#1f2435] py-3 px-8 rounded-lg">
-                <h3 className="text-white text-2xl font-bold text-center">
+                <h3 className="text-white text-xl font-bold text-center">
                   CSGO Clans
                 </h3>
               </div>
@@ -46,7 +46,7 @@ const Clans = () => {
             />
             <div className="absolute inset-0 top-[158px] flex items-center justify-center">
               <div className="bg-[#1f2435] py-3 px-8 rounded-lg">
-                <h3 className="text-white text-2xl font-bold text-center">
+                <h3 className="text-white text-xl font-bold text-center">
                   CSGO Clans
                 </h3>
               </div>

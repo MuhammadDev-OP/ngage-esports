@@ -32,7 +32,7 @@ const data = [
 const News = () => {
   return (
     <>
-      <div className="ux-shape-divider ux-shape-divider--bottom ux-shape-divider--style-waves-opacity-3">
+      {/* <div className="ux-shape-divider ux-shape-divider--bottom ux-shape-divider--style-waves-opacity-3">
         <svg
           viewBox="0 0 1200 60"
           xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@ const News = () => {
             d="M0,0 V30 Q300,40 600,30 T1200,30 V0 Z"
           ></path>
         </svg>
-      </div>
+      </div> */}
       <Wrapper>
         <div className="grid grid-cols-3 gap-4">
           {data.map((item, index) => (
