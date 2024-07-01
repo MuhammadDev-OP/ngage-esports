@@ -1,8 +1,13 @@
+"use client";
+
 import React from "react";
 import Wrapper from "../components/shared/Wrapper";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Tournaments = () => {
+  const router = useRouter();
+
   return (
     <Wrapper>
       <div className="my-5">
@@ -32,7 +37,12 @@ const Tournaments = () => {
           className="w-[300px]"
         />
       </div>
-      <h1 className="text-yellow-500 hover:text-orange-500 duration-150">
+      <h1
+        onClick={() => {
+          router.push("/tournaments/csgo");
+        }}
+        className="text-yellow-500 hover:text-orange-500 duration-150 cursor-pointer"
+      >
         CSGO Tournaments
       </h1>
     </Wrapper>

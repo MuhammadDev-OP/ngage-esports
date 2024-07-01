@@ -3,7 +3,7 @@ import Wrapper from "../shared/Wrapper";
 const Info = () => {
   return (
     <Wrapper>
-      <div className="flex mt-8 gap-x-14">
+      <div className="flex mt-36 gap-x-14">
         <div className="w-[540px]">
           <h1 className="text-2xl font-semibold">Find or Create A Team</h1>
           <p className="mt-5">
