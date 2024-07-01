@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <>
       <div
-        className="relative flex flex-col min-h-[50vh] items-center justify-center w-full bg-cover bg-center bg-no-repeat bg-blend-overlay bg-[#333460]/40 "
+        className="relative flex flex-col min-h-[50vh] items-center justify-center w-full bg-cover bg-center bg-no-repeat bg-blend-overlay bg-[#333460]/80 "
         style={{ backgroundImage: "url(/media/abstract_bg.jpg)" }}
       >
         <Wrapper>
@@ -62,15 +62,15 @@ const Hero = () => {
             </div>
           </div>
         </Wrapper>
-        <div className="absolute bottom-[-70px] left-0 w-full overflow-hidden">
+        <div className="absolute bottom-[-80px] left-0 w-full overflow-hidden">
           <Image
             src={"/media/wave.svg"}
             alt={""}
             width={1920}
             height={1080}
-            className="w-full opacity-95"
+            className="w-full opacity-90"
           />
-          <h1 className="absolute bottom-[0.4%] bg-[#fdda0d] p-7 left-0 right-0 text-black text-center text-xl sm:text-2xl md:text-3xl font-bold">
+          <h1 className="md:bottom-[-0.5%] md:absolute bg-[#fdda0d] p-5 md:p-7 left-0 right-0 text-black text-center text-xl sm:text-2xl md:text-3xl font-bold">
             A foundation for growth in the competitive gaming ecosystem.
           </h1>
         </div>
