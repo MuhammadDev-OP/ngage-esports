@@ -4,7 +4,7 @@ import Wrapper from "../shared/Wrapper";
 const Broadcasting = () => {
   return (
     <Wrapper>
-      <div className="flex flex-row mt-16 gap-x-6">
+      <div className="flex flex-col md:flex-row mt-16 gap-x-6">
         <div className="flex-grow">
           <h1 className="text-3xl">Broadcasting</h1>
           <p className="font-medium mt-5 text-base">
@@ -40,13 +40,13 @@ const Broadcasting = () => {
             ))}
           </div>
         </div>
-        <div className="mt-8 w-[550px] h-[100px] flex-shrink-0">
+        <div className="mt-8 flex-shrink-0">
           <Image
             src={"/media/broadcasting.jpg"}
             alt={"events"}
             width={1920}
             height={1080}
-            className="w-[550px]  h-[335px]"
+            className="w-[550px] h-[250px] md:h-[335px]"
           />
         </div>
       </div>

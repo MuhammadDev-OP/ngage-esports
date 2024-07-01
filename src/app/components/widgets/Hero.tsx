@@ -26,24 +26,36 @@ const Hero = () => {
                 global standard for professional gaming.
               </p>
             </div>
-            <div className="flex flex-col gap-4 items-center md:justify-center mt-10 md:flex-row z-50">
-              <div className="px-12 py-1 sm:px-16 md:px-20 rounded-lg bg-[#fdda0d] hover:bg-[#cbb13a] duration-300">
-                <a href="" className="text-black font-bold text-lg">
+            <div className="grid grid-cols-2 gap-4 items-center mt-10 md:flex md:flex-row md:gap-4 z-20">
+              <div className="py-1 w-full rounded-lg bg-[#fdda0d] hover:bg-[#cbb13a] duration-300">
+                <a
+                  href="/clans"
+                  className="block text-black text-center font-bold text-lg"
+                >
                   CLANS
                 </a>
               </div>
-              <div className="px-12 py-1 sm:px-16 md:px-20 rounded-lg bg-[#fdda0d] hover:bg-[#cbb13a] duration-300">
-                <a href="" className="text-black font-bold text-lg">
+              <div className="py-1 w-full rounded-lg bg-[#fdda0d] hover:bg-[#cbb13a] duration-300">
+                <a
+                  href="/tournaments"
+                  className="block text-black text-center font-bold text-lg"
+                >
                   TOURNAMENTS
                 </a>
               </div>
-              <div className="px-12 py-1 sm:px-16 md:px-20 rounded-lg bg-[#fdda0d] hover:bg-[#cbb13a] duration-300">
-                <a href="" className="text-black font-bold text-lg">
+              <div className="py-1 w-full rounded-lg bg-[#fdda0d] hover:bg-[#cbb13a] duration-300">
+                <a
+                  href=""
+                  className="block text-black text-center font-bold text-lg"
+                >
                   COACHING
                 </a>
               </div>
-              <div className="px-12 py-1 sm:px-16 md:px-20 rounded-lg bg-[#fdda0d] hover:bg-[#cbb13a] duration-300">
-                <a href="" className="text-black font-bold text-lg">
+              <div className="py-1 w-full rounded-lg bg-[#fdda0d] hover:bg-[#cbb13a] duration-300">
+                <a
+                  href=""
+                  className="block text-black text-center font-bold text-lg"
+                >
                   RANKS
                 </a>
               </div>
