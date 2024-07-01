@@ -11,11 +11,11 @@ datasource db {
 }
 
 model User {
-  userId      String  @id @default(cuid()) @map("_id")
-  username    String
-  email       String?
-  phoneNumber String?
-  password    String
-  userType    String  @default("Customer")
-  balance     Float   @default(0.00)
+  userId         String  @id @default(cuid()) @map("_id")
+  username       String?
+  email          String?
+  phoneNumber    String?
+  hashedPassword String?
+  userType       String  @default("Customer")
+  balance        Float   @default(0.00)
 }
