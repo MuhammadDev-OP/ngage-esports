@@ -1,3 +1,4 @@
+import RegisterModal from "../modals/RegisterModal";
 import Wrapper from "../shared/Wrapper";
 import Image from "next/image";
 
@@ -8,6 +9,7 @@ const Hero = () => {
         className="relative flex flex-col min-h-[50vh] items-center justify-center w-full bg-cover bg-center bg-no-repeat bg-blend-overlay bg-[#333460]/80 "
         style={{ backgroundImage: "url(/media/abstract_bg.jpg)" }}
       >
+        <RegisterModal />
         <Wrapper>
           <div className="flex flex-col content-center pt-12 pb-10 mb-32">
             <div>

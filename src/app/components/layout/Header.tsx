@@ -6,13 +6,18 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { TbBrandValorant, TbBrandFortnite } from "react-icons/tb";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
 import clsx from "clsx";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
+import RegisterModal from "../modals/RegisterModal";
 
 const Header: React.FC = () => {
   const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  const registerModal = useRegisterModal();
 
   const handleMouseEnter = (event: MouseEvent) => {
     if (dropdownTimeout.current) {
@@ -117,7 +122,17 @@ const Header: React.FC = () => {
               TOURNAMENTS
             </a>
           </div>
+          <div className="ml-auto hidden items-center md:flex">
+            <FaUserCircle size={24} className="mr-2 text-gray-300" />
+            <h1
+              onClick={registerModal.onOpen}
+              className="text-gray-300 font-bold text-md hover:text-gray-200 cursor-pointer"
+            >
+              Login/Signup
+            </h1>
+          </div>
         </div>
+
         {/* Mobile Menu */}
         <div
           className={clsx(
@@ -174,6 +189,15 @@ const Header: React.FC = () => {
                 Fortnite Tracker
               </a>
               <hr className="border-gray-600" />
+              <div className="ml-auto flex items-center">
+                <FaUserCircle size={24} className="mr-2 text-gray-300" />
+                <h1
+                  onClick={registerModal.onOpen}
+                  className="text-gray-300 font-bold text-md hover:text-gray-200 cursor-pointer"
+                >
+                  Login/Signup
+                </h1>
+              </div>
             </nav>
           </div>
         </div>
