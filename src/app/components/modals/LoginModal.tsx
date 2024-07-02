@@ -105,7 +105,7 @@ const LoginModal = () => {
         "
       >
         <p>
-          Don't Have An Account?
+          Dont Have An Account?
           <span
             onClick={onToggle}
             className="
