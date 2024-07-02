@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
-import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -15,8 +14,10 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import Modal from "./Modal";
 import Button from "../Button";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/app/context/UserContext";
 
 const LoginModal = () => {
+  const { user, setUser } = useUser();
   const router = useRouter();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
@@ -28,31 +29,32 @@ const LoginModal = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      username: "",
       email: "",
       password: "",
     },
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
+    try {
+      const response = await axios.post("/api/auth", data);
+      toast.success(response.data.message);
 
-    signIn("credentials", {
-      ...data,
-      redirect: false,
-    }).then((callback) => {
+      // Set user in context
+      setUser(response.data.user);
+
+      // Save user to local storage
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+
+      // Redirect or close modal after successful login
+      router.push("/"); // Replace with your desired route
+      loginModal.onClose();
+    } catch (error) {
+      console.error("Login failed:", error);
+      toast.error("Invalid credentials, please try again.");
+    } finally {
       setIsLoading(false);
-
-      if (callback?.ok) {
-        toast.success("Logged in");
-        router.refresh();
-        loginModal.onClose();
-      }
-
-      if (callback?.error) {
-        toast.error(callback.error);
-      }
-    });
+    }
   };
 
   const onToggle = useCallback(() => {
@@ -61,7 +63,7 @@ const LoginModal = () => {
   }, [registerModal, loginModal]);
 
   const bodyContent = (
-    <div className="flex flex-col gap-4 ">
+    <div className="flex flex-col gap-4">
       <h1 className="text-xl sm:text-4xl md:text-5xl text-black text-center font-bold">
         NGAGE Esports
       </h1>
@@ -88,12 +90,12 @@ const LoginModal = () => {
   const footerContent = (
     <div className="flex flex-col gap-4 mt-3">
       <hr />
-      <Button
+      {/* <Button
         outline
         label="Continue with Google"
         icon={FcGoogle}
         onClick={() => signIn("google")}
-      />
+      /> */}
       <div
         className="
           text-neutral-500 
@@ -103,7 +105,7 @@ const LoginModal = () => {
         "
       >
         <p>
-          Dont Have An Account?
+          Don't Have An Account?
           <span
             onClick={onToggle}
             className="

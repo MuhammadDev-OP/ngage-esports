@@ -10,8 +10,10 @@ import { FaUserCircle } from "react-icons/fa";
 import clsx from "clsx";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import RegisterModal from "../modals/RegisterModal";
+import { useUser } from "@/app/context/UserContext";
 
 const Header: React.FC = () => {
+  const { user, setUser } = useUser();
   const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -123,7 +125,7 @@ const Header: React.FC = () => {
               onClick={registerModal.onOpen}
               className="text-gray-300 font-bold text-md hover:text-gray-200 cursor-pointer"
             >
-              Login/Signup
+              {user ? user.username : "login/signup"}
             </h1>
           </div>
         </div>
@@ -190,7 +192,7 @@ const Header: React.FC = () => {
                   onClick={registerModal.onOpen}
                   className="text-gray-300 font-bold text-md hover:text-gray-200 cursor-pointer"
                 >
-                  Login/Signup
+                  {user ? user.username : "login/signup"}
                 </h1>
               </div>
             </nav>

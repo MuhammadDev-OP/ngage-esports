@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import ToasterProvider from "./providers/ToastProvider";
 import RegisterModal from "./components/modals/RegisterModal";
 import LoginModal from "./components/modals/LoginModal";
+import { UserProvider } from "./context/UserContext";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -32,12 +33,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSans.className}>
-        <ToasterProvider />
-        <Header />
-        <RegisterModal />
-        <LoginModal />
-        {children}
-        <Footer />
+        <UserProvider>
+          <ToasterProvider />
+          <Header />
+          <RegisterModal />
+          <LoginModal />
+          {children}
+          <Footer />
+        </UserProvider>
       </body>
     </html>
   );
