@@ -1,6 +1,7 @@
 import prisma from "@/app/libs/prismadb";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
+import { User } from "@prisma/client";
 
 interface RequestBody {
   email: string;
@@ -12,11 +13,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const body: RequestBody = await req.json();
     const { email, password } = body;
 
-    const user = await prisma.user.findFirst({
+    const user = (await prisma.user.findFirst({
       where: { email: email },
-    });
+    })) as User & { hashedPassword?: string };
 
-    if (!user || !user.hashedPassword) {
+    if (!user || user.hashedPassword === undefined) {
       return NextResponse.json({ message: "User not found" }, { status: 404 });
     }
 
