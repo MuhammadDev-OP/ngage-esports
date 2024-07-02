@@ -37,9 +37,9 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#1f2435]/80 backdrop-blur-lg text-white py-4 z-50 sticky top-0">
+    <div className="bg-[#1f2435] text-white py-4 z-50 sticky top-0">
       <Wrapper>
-        <div className="flex items-center justify-between md:justify-start gap-4">
+        <div className="flex items-center justify-between gap-4">
           <div
             onClick={() => {
               router.push("/");
@@ -49,21 +49,16 @@ const Header: React.FC = () => {
             <Image
               src={"/layout/ngage_logo.svg"}
               alt={"logo"}
-              width={1920}
-              height={1080}
-              className="w-[140px]"
+              width={140}
+              height={40}
             />
           </div>
-          <div
-            className="md:hidden cursor-pointer text-right"
-            onClick={toggleMobileMenu}
-          >
+          <div className="md:hidden cursor-pointer" onClick={toggleMobileMenu}>
             <Image
               src={"/media/hamburger.svg"}
               alt={"menu"}
               width={28}
               height={28}
-              className=""
             />
           </div>
           <div
@@ -140,13 +135,13 @@ const Header: React.FC = () => {
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
-          <div className="w-64 bg-black text-white h-full p-8 relative">
+          <div className="w-64 bg-[#1f2435] text-white h-full p-8 relative">
             <AiOutlineClose
               size={28}
               className="absolute top-4 right-4 cursor-pointer"
               onClick={toggleMobileMenu}
             />
-            <nav className="mt-16 flex flex-col gap-4">
+            <nav className="mt-16 flex flex-col gap-5">
               <a
                 href="/news"
                 className="text-gray-300 font-bold text-md hover:text-gray-200"
@@ -176,7 +171,7 @@ const Header: React.FC = () => {
                 className="flex items-center text-gray-300 font-bold text-md hover:text-gray-200"
                 onClick={toggleMobileMenu}
               >
-                <TbBrandValorant size={24} className="mr-1 text-red-500" />
+                <TbBrandValorant size={24} className="mr-2 text-red-500" />
                 Valorant Tracker
               </a>
               <hr className="border-gray-600" />
@@ -185,11 +180,11 @@ const Header: React.FC = () => {
                 className="flex items-center text-gray-300 font-bold text-md hover:text-gray-200"
                 onClick={toggleMobileMenu}
               >
-                <TbBrandFortnite size={24} className="mr-1 text-blue-500" />
+                <TbBrandFortnite size={24} className="mr-2 text-blue-500" />
                 Fortnite Tracker
               </a>
               <hr className="border-gray-600" />
-              <div className="ml-auto flex items-center">
+              <div className=" flex items-center">
                 <FaUserCircle size={24} className="mr-2 text-gray-300" />
                 <h1
                   onClick={registerModal.onOpen}
