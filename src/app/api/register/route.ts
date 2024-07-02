@@ -1,7 +1,17 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 
-import prisma from "@/app/libs/prismadb";
+import prisma from "@/app/libs/prismadb"; // Import User model if available
+import { User } from "@prisma/client";
+
+interface CreateUserInput {
+  username: string;
+  email: string;
+  hashedPassword: string;
+  phoneNumber?: string | null;
+  userType?: string;
+  balance?: number;
+}
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -9,17 +19,18 @@ export async function POST(request: Request) {
 
   const hashedPassword: string = await bcrypt.hash(password, 12);
 
+  const userData: CreateUserInput = {
+    username,
+    email,
+    hashedPassword,
+    phoneNumber: null, // Example
+    userType: "Customer", // Example
+    balance: 0.0, // Example
+  };
+
   try {
     const user = await prisma.user.create({
-      data: {
-        username,
-        email,
-        hashedPassword,
-        // Optionally include other fields as needed
-        phoneNumber: null, // Example
-        userType: "Customer", // Example
-        balance: 0.0, // Example
-      },
+      data: userData as User | CreateUserInput, // Cast to User or CreateUserInput
     });
 
     return NextResponse.json(user);
