@@ -5,11 +5,14 @@ import Wrapper from "../shared/Wrapper";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { TbBrandValorant, TbBrandFortnite } from "react-icons/tb";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import {
+  AiOutlineMenu,
+  AiOutlineClose,
+  AiOutlinePoweroff,
+} from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import clsx from "clsx";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
-import RegisterModal from "../modals/RegisterModal";
 import { useUser } from "@/app/context/UserContext";
 
 const Header: React.FC = () => {
@@ -36,6 +39,22 @@ const Header: React.FC = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem("user"); // Assuming user data is stored in localStorage
+    router.push("/");
+  };
+
+  const handleTrackerClick = (event: MouseEvent, url: string) => {
+    if (!user) {
+      event.preventDefault();
+      registerModal.onOpen();
+    } else {
+      router.refresh();
+      router.push(url);
+    }
   };
 
   return (
@@ -80,15 +99,17 @@ const Header: React.FC = () => {
             {isDropdownOpen && (
               <div className="absolute top-full left-0 bg-[#1f2435] mt-2 p-2 rounded-lg shadow-lg w-full z-50">
                 <a
-                  href="/tracker/valorant"
+                  href="/valorant"
                   className="flex items-center p-2 hover:bg-[#243350] rounded-md"
+                  onClick={(e) => handleTrackerClick(e, "/valorant")}
                 >
                   <TbBrandValorant className="mr-2 text-red-500" />
                   Valorant Tracker
                 </a>
                 <a
-                  href="/tracker/fortnite"
+                  href="/fortnite"
                   className="flex items-center p-2 mt-1 hover:bg-[#243350] rounded-md"
+                  onClick={(e) => handleTrackerClick(e, "/fortnite")}
                 >
                   <TbBrandFortnite className="mr-2 text-blue-500" />
                   Fortnite Tracker
@@ -127,6 +148,13 @@ const Header: React.FC = () => {
             >
               {user ? user.username : "login/signup"}
             </h1>
+            {user && (
+              <AiOutlinePoweroff
+                size={24}
+                className="ml-2 text-red-500 cursor-pointer"
+                onClick={handleLogout}
+              />
+            )}
           </div>
         </div>
 
@@ -171,7 +199,7 @@ const Header: React.FC = () => {
               <a
                 href="/tracker/valorant"
                 className="flex items-center text-gray-300 font-bold text-md hover:text-gray-200"
-                onClick={toggleMobileMenu}
+                onClick={(e) => handleTrackerClick(e, "/valorant")}
               >
                 <TbBrandValorant size={24} className="mr-2 text-red-500" />
                 Valorant Tracker
@@ -180,7 +208,7 @@ const Header: React.FC = () => {
               <a
                 href="/tracker/fortnite"
                 className="flex items-center text-gray-300 font-bold text-md hover:text-gray-200"
-                onClick={toggleMobileMenu}
+                onClick={(e) => handleTrackerClick(e, "/fortnite")}
               >
                 <TbBrandFortnite size={24} className="mr-2 text-blue-500" />
                 Fortnite Tracker
@@ -194,6 +222,13 @@ const Header: React.FC = () => {
                 >
                   {user ? user.username : "login/signup"}
                 </h1>
+                {user && (
+                  <AiOutlinePoweroff
+                    size={24}
+                    className="ml-2 text-red-500 cursor-pointer"
+                    onClick={handleLogout}
+                  />
+                )}
               </div>
             </nav>
           </div>
