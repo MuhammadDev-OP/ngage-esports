@@ -20,7 +20,7 @@ const InfoFortnite = () => {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-3 mt-20 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 mt-20 gap-5">
           <div className="flex flex-col justify-center items-center bg-[#1f2435] p-8 rounded-lg">
             <Image
               src={"/fortnite/info/stats_icon.svg"}

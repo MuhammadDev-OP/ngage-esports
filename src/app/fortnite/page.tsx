@@ -64,8 +64,8 @@ const FortniteTracker = () => {
         style={{ backgroundImage: "url(/media/abstract_bg.jpg)" }}
       >
         <Wrapper>
-          <div className="flex items-center justify-center gap-16">
-            <div className="flex items-center flex-col w-[900px]">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-16">
+            <div className="flex items-center flex-col mt-4 w-[300px] md:w-[900px]">
               <Image
                 src={"/fortnite/fortnite-icon-large.png"}
                 alt={""}
@@ -73,7 +73,9 @@ const FortniteTracker = () => {
                 height={1080}
                 className="w-[80px]"
               />
-              <h1 className="text-4xl font-bold mt-10">FORTNITE TRACKER</h1>
+              <h1 className="text-4xl text-center font-bold mt-10">
+                FORTNITE TRACKER
+              </h1>
               <p className="text-xl mt-5 font-semibold text-center">
                 Track your progress and sharpen your skills with our Fortnite
                 tracker
@@ -115,7 +117,10 @@ const FortniteTracker = () => {
                         <FaUserAlt className="mr-2 text-xl text-yellow-500" />
                         <div>
                           <p className="text-xl font-bold text-gray-700">
-                            {username}
+                            {username}{" "}
+                            <span className="bg-green-200 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded  ">
+                              Active
+                            </span>
                           </p>
                         </div>
                       </div>
@@ -140,7 +145,7 @@ const FortniteTracker = () => {
                 </p>
               </div>
             </div>
-            <div className="mt-10 w-[400px]">
+            <div className="mt-10 w-[370px] md:w-[400px]">
               <div className="flex rounded-2xl m-5 items-center p-3 bg-[#243350]">
                 <Image
                   src={"/fortnite/fortnite_profile_1.jpg"}
