@@ -4,6 +4,11 @@ import { Barlow, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import { Toaster } from "react-hot-toast";
+import ToasterProvider from "./providers/ToastProvider";
+import RegisterModal from "./components/modals/RegisterModal";
+import LoginModal from "./components/modals/LoginModal";
+import { UserProvider } from "./context/UserContext";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -28,10 +33,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSans.className}>
-        <Header />
-
-        {children}
-        <Footer />
+        <UserProvider>
+          <ToasterProvider />
+          <Header />
+          <RegisterModal />
+          <LoginModal />
+          {children}
+          <Footer />
+        </UserProvider>
       </body>
     </html>
   );

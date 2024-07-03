@@ -2,27 +2,32 @@
 
 import Image from "next/image";
 import Wrapper from "../components/shared/Wrapper";
+import { useRouter } from "next/navigation";
 
 const data = [
   {
+    slug: "elevating-user-experience-fivems-six-month-journey-under-rockstar-games",
     heading: "Noteworthy technology acquisitions 2021",
     content:
       "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
     image: "/media/news1.jpg",
   },
   {
+    slug: "elevating-user-experience-fivems-six-month-journey-under-rockstar-games",
     heading: "Another significant acquisition",
     content:
       "Details about another significant acquisition in the tech industry.",
     image: "/media/news1.jpg",
   },
   {
+    slug: "elevating-user-experience-fivems-six-month-journey-under-rockstar-games",
     heading: "Yet another acquisition",
     content:
       "Information on yet another acquisition that made headlines in 2021.",
     image: "/media/news1.jpg",
   },
   {
+    slug: "elevating-user-experience-fivems-six-month-journey-under-rockstar-games",
     heading: "Major tech mergers",
     content: "A rundown of major tech mergers and their implications.",
     image: "/media/news1.jpg",
@@ -30,6 +35,7 @@ const data = [
 ];
 
 const News = () => {
+  const router = useRouter();
   return (
     <>
       {/* <div className="ux-shape-divider ux-shape-divider--bottom ux-shape-divider--style-waves-opacity-3">
@@ -56,13 +62,13 @@ const News = () => {
         </svg>
       </div> */}
       <Wrapper>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {data.map((item, index) => (
             <div
               key={index}
               className="max-w-sm bg-[#1f2435] border mt-16 rounded-lg shadow border-gray-700"
             >
-              <a href="#">
+              <a href={`news/${item.slug}`}>
                 <Image
                   className="rounded-t-lg"
                   src={item.image}
@@ -72,14 +78,16 @@ const News = () => {
                 />
               </a>
               <div className="p-5">
-                <a href="#">
+                <a href={`news/${item.slug}`}>
                   <h5 className="mb-2 text-2xl font-bold text-center tracking-tight text-white">
                     {item.heading}
                   </h5>
                 </a>
                 <hr className="my-2 mx-auto w-[50px] text-center" />
                 <p
-                  onClick={() => {}}
+                  onClick={() => {
+                    router.push(`news/${item.slug}`);
+                  }}
                   className="mb-3 font-normal text-center text-white hover:text-orange-400 duration-200 cursor-pointer"
                 >
                   {item.content}

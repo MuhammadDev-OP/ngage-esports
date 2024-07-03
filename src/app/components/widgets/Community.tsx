@@ -4,8 +4,8 @@ import Wrapper from "../shared/Wrapper";
 const Community = () => {
   return (
     <Wrapper>
-      <div className="flex flex-row mt-16 gap-x-6">
-        <div className="mt-8 w-[510px] flex-shrink-0">
+      <div className="flex flex-col md:flex-row mt-16 gap-x-6">
+        <div className="mt-8 flex-shrink-0">
           <Image
             src={"/media/community.jpg"}
             alt={"events"}
@@ -14,7 +14,7 @@ const Community = () => {
             className="w-[510px]  h-[315px] "
           />
         </div>
-        <div className="flex-grow">
+        <div className="flex-grow mt-5">
           <h1 className="text-3xl">Community</h1>
           <p className="font-medium mt-5 text-base">
             There is no esports without its people, and there would be no brand

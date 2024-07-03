@@ -4,8 +4,8 @@ import Wrapper from "../shared/Wrapper";
 const Events = () => {
   return (
     <Wrapper>
-      <div className="flex flex-row mt-16 gap-x-6">
-        <div className="mt-8 w-[510px] flex-shrink-0">
+      <div className="flex flex-col md:flex-row mt-16 gap-x-6">
+        <div className="mt-8  flex-shrink-0">
           <Image
             src={"/media/events.jpg"}
             alt={"events"}
@@ -14,7 +14,7 @@ const Events = () => {
             className="w-[510px] "
           />
         </div>
-        <div className="flex-grow">
+        <div className="flex-grow mt-5">
           <h1 className="text-3xl">Events</h1>
           <p className="font-medium mt-5 text-base">
             The gaming community’s standards don’t just demand the best out of
