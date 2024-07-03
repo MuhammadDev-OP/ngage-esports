@@ -9,14 +9,18 @@ interface RequestBody {
   password: string;
 }
 
+interface UserCreateInputExtended extends User {
+  hashedPassword: string;
+}
+
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const body: RequestBody = await req.json();
     const { email, username, password } = body;
 
-    const existingUser = (await prisma.user.findFirst({
+    const existingUser = await prisma.user.findFirst({
       where: { email: email },
-    })) as User;
+    });
 
     if (existingUser) {
       return NextResponse.json(
@@ -32,8 +36,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         username,
         email,
         hashedPassword,
-      },
-    })) as User & { hashedPassword?: string };
+      } as UserCreateInputExtended,
+    })) as User;
 
     return NextResponse.json({
       user: newUser,
