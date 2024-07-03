@@ -1,11 +1,20 @@
+"use client";
 import React from "react";
 import Wrapper from "../components/shared/Wrapper";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Clans = () => {
+  const router = useRouter();
+
   return (
     <Wrapper>
-      <div className="my-10 ">
+      <div
+        className="my-10 cursor-pointer"
+        onClick={() => {
+          router.push("clans/warzone");
+        }}
+      >
         <div>
           <h3 className="text-3xl font-bold text-center">
             Game Clans, Guilds & Teams
