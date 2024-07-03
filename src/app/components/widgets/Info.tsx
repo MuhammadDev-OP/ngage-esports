@@ -27,43 +27,43 @@ const Info = () => {
         </div>
         <div className="flex flex-col mt-5">
           <a
-            href=""
+            href="/clans/warzone"
             className=" text-[#fdda0d] font-bold text-sm hover:text-black duration-150"
           >
             COD WARZONE CLANS
           </a>
           <a
-            href=""
+            href="/clans/warzone"
             className="link-with-bar font-bold text-[#fdda0d] text-sm hover:text-black duration-150"
           >
             CSGO CLANS
           </a>
           <a
-            href=""
+            href="/clans/warzone"
             className="link-with-bar font-bold text-[#fdda0d] text-sm hover:text-black duration-150"
           >
             FAZE CSGO CLAN
           </a>
           <a
-            href=""
+            href="/clans/warzone"
             className="link-with-bar font-bold text-[#fdda0d] text-sm hover:text-black duration-150"
           >
             TEAM LIQUID CSGO CLAN
           </a>
           <a
-            href=""
+            href="/clans/warzone"
             className="link-with-bar font-bold text-[#fdda0d] text-sm hover:text-black duration-150"
           >
             CLOUD CSGO CLAN
           </a>
           <a
-            href=""
+            href="/clans/warzone"
             className="link-with-bar font-bold text-[#fdda0d] text-sm hover:text-black duration-150"
           >
             FNATIC CSGO CLAN
           </a>
           <a
-            href=""
+            href="/clans/warzone"
             className="link-with-bar font-bold text-[#fdda0d] text-sm hover:text-black duration-150"
           ></a>
         </div>
