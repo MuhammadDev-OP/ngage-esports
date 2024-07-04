@@ -3,7 +3,8 @@
 import Wrapper from "@/app/components/shared/Wrapper";
 import { PlayerStats } from "@/app/types/utils";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { FaUser } from "react-icons/fa";
 
 interface IParams {
   id?: string;
@@ -12,6 +13,7 @@ interface IParams {
 const FortniteUser = ({ params }: { params: IParams }) => {
   const { id } = params;
   const [playerStats, setPlayerStats] = useState<PlayerStats | null>(null);
+  const [selectedMode, setSelectedMode] = useState("solo");
 
   const fetchPlayerStats = async () => {
     try {
@@ -29,21 +31,90 @@ const FortniteUser = ({ params }: { params: IParams }) => {
     }
   };
 
-  const handleSearchIconClick = () => {
+  useEffect(() => {
     fetchPlayerStats();
+  }, [id]);
+
+  const handleModeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedMode(e.target.value);
   };
 
-  console.log("✅", id);
   return (
     <Wrapper>
-      <div>
-        <button onClick={handleSearchIconClick}>Fetch Player Stats</button>
-        {playerStats && (
-          <div>
-            <h2>Player Stats</h2>
-            <pre>{JSON.stringify(playerStats, null, 2)}</pre>
+      <div className="flex flex-col items-center p-6 min-h-screen">
+        <div className="w-full max-w-4xl bg-[#1f2435] shadow-md rounded-lg p-6">
+          <div className="flex items-center space-x-4 mb-6">
+            <FaUser className="text-6xl text-slate-500" />
+            <h1 className="text-3xl text-[#fdda0d] font-bold">
+              {playerStats?.name || "Player"}
+            </h1>
           </div>
-        )}
+          <div className="mb-6">
+            <label className="text-white font-semibold mr-4">
+              Select Game Mode:
+            </label>
+            <select
+              value={selectedMode}
+              onChange={handleModeChange}
+              className="px-3 py-2 rounded-lg shadow-md bg-gray-700 text-white capitalize"
+            >
+              <option className="" value="solo">
+                Solo
+              </option>
+              <option value="duo">Duo</option>
+              <option value="squad">Squad</option>
+              <option value="ltm">LTM</option>
+            </select>
+          </div>
+          {/* <button
+            onClick={fetchPlayerStats}
+            className="px-4 py-2 bg-blue-600 font-bold text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+          >
+            Fetch Player Stats
+          </button> */}
+          {playerStats && (
+            <div className="mt-6 text-white">
+              <div className="bg-gray-800 p-4 rounded-lg shadow-md">
+                <h3 className="text-xl capitalize font-semibold mb-4">
+                  {selectedMode}
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div>
+                    <p className="text-lg font-bold">Wins:</p>
+                    <p className="text-2xl text-white font-bold">
+                      {playerStats.global_stats[selectedMode]?.placetop1 || 0}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold">Kills:</p>
+                    <p className="text-2xl text-white font-bold">
+                      {playerStats.global_stats[selectedMode]?.kills || 0}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold">Matches Played:</p>
+                    <p className="text-2xl text-white font-bold">
+                      {playerStats.global_stats[selectedMode]?.matchesplayed ||
+                        0}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold">K/D Ratio:</p>
+                    <p className="text-2xl text-white font-bold">
+                      {playerStats.global_stats[selectedMode]?.kd || 0}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold">Win Rate:</p>
+                    <p className="text-2xl text-white font-bold">
+                      {playerStats.global_stats[selectedMode]?.winrate || 0}%
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </Wrapper>
   );

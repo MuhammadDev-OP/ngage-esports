@@ -11,10 +11,10 @@ const Clans = () => {
       >
         <Wrapper>
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-4xl font-bold text-center m-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-center m-4">
               JOIN OR CREATE COD WARZONE CLANS
             </h1>
-            <p className="font-semibold text-lg text-center m-4">
+            <p className="font-semibold text-base md:text-lg text-center m-4">
               Suppose you’re tired of playing solo games on warzone and looking
               for teams that offer unmatched three-player man gameplays. Or
               practice communication and perfect team strats with a clan/team
@@ -44,12 +44,12 @@ const Clans = () => {
                   ></path>
                 </svg>
               </div>
-              <div className="flex mt-4 space-x-4 w-[100%]">
-                <button className="px-4 py-2 border-2 border-[#fdda0d] text-xl outline-2 w-[100%] text-black font-black rounded-md opacity-70 hover:opacity-100 hover:bg-[#fdda0d] duration-200 flex items-center justify-center">
+              <div className="flex mb-4 mt-4 space-x-4 w-[100%]">
+                <button className="md:px-4 md:py-2 p-2 border-2 border-[#fdda0d] text-lg md:text-xl outline-2 w-[100%] text-white font-black rounded-md opacity-70 hover:opacity-100 hover:bg-[#fdda0d] duration-200 flex items-center justify-center">
                   <FaSearch className="mr-2" />
                   FIND A CLAN
                 </button>
-                <button className="px-4 py-2 bg-[#fdda0d] w-[100%] text-xl text-black font-black rounded-md opacity-100 hover:opacity-90 duration-200 flex items-center justify-center">
+                <button className="md:px-4 md:py-2 p-2 bg-[#fdda0d] w-[100%] text-lg md:text-xl text-black font-black rounded-md opacity-100 hover:opacity-90 duration-200 flex items-center justify-center">
                   <FaPlus className="mr-2" />
                   CREATE A CLAN
                 </button>

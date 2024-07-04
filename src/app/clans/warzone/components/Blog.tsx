@@ -28,7 +28,7 @@ const Blog = () => {
       </div> */}
 
       <Wrapper>
-        <div>
+        <div className="mt-4">
           <h1 className="text-3xl font-bold">What Ngage can do for you</h1>
           <p className="text-lg font-medium mt-2">
             You can create your own Call of Duty Warzone clan/team to achieve
