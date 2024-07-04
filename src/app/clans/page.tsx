@@ -28,7 +28,7 @@ const Clans = () => {
             Ngage.gg is the place to be.
           </p>
         </div>
-        <div className="grid grid-cols-4 mt-10 gap-8">
+        <div className="grid justify-items-center grid-cols-1 md:grid-cols-4 mt-10 gap-8">
           <div className="relative">
             <Image
               src={"/media/csgo.jpg"}
