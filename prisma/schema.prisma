@@ -8,11 +8,14 @@ datasource db {
 }
 
 model User {
-  id             String  @id @default(auto()) @map("_id") @db.ObjectId
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
   username       String?
-  email          String  @unique
+  email          String   @unique
   phoneNumber    String?
   hashedPassword String?
-  userType       String  @default("Customer")
-  balance        Float   @default(0.00)
+  userType       String   @default("Customer")
+  balance        Float    @default(0.00)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  favoriteIds    String[] @default([])
 }

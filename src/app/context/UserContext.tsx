@@ -12,6 +12,7 @@ interface User {
   id: string;
   email: string;
   username?: string;
+  favoriteIds?: string[];
   // Add other user properties here
 }
 
