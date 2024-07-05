@@ -203,18 +203,18 @@ const Header: React.FC = () => {
               </a>
               <hr className="border-gray-600" />
               <a
-                href="/tracker/valorant"
+                href="/valorant"
                 className="flex items-center text-gray-300 font-bold text-md hover:text-gray-200"
-                onClick={(e) => handleTrackerClick(e, "/valorant")}
+                // onClick={(e) => handleTrackerClick(e, "/valorant")}
               >
                 <TbBrandValorant size={24} className="mr-2 text-red-500" />
                 Valorant Tracker
               </a>
               <hr className="border-gray-600" />
               <a
-                href="/tracker/fortnite"
+                href="/fortnite"
                 className="flex items-center text-gray-300 font-bold text-md hover:text-gray-200"
-                onClick={(e) => handleTrackerClick(e, "/fortnite")}
+                // onClick={(e) => handleTrackerClick(e, "/fortnite")}
               >
                 <TbBrandFortnite size={24} className="mr-2 text-blue-500" />
                 Fortnite Tracker
@@ -234,6 +234,14 @@ const Header: React.FC = () => {
                     className="ml-2 text-red-500 cursor-pointer"
                     onClick={handleLogout}
                   />
+                )}
+                {user && (
+                  <>
+                    <FaHeart
+                      className={`text-xl ml-4 text-red-600 cursor-pointer`}
+                      onClick={() => router.push("/myfavorites")}
+                    />
+                  </>
                 )}
               </div>
             </nav>
