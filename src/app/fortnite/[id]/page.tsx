@@ -4,7 +4,9 @@ import Wrapper from "@/app/components/shared/Wrapper";
 import { PlayerStats } from "@/app/types/utils";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaHeart } from "react-icons/fa";
+import { useUser } from "@/app/context/UserContext";
+import toast from "react-hot-toast";
 
 interface IParams {
   id?: string;
@@ -14,6 +16,8 @@ const FortniteUser = ({ params }: { params: IParams }) => {
   const { id } = params;
   const [playerStats, setPlayerStats] = useState<PlayerStats | null>(null);
   const [selectedMode, setSelectedMode] = useState("solo");
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { user } = useUser();
 
   const fetchPlayerStats = async () => {
     try {
@@ -35,8 +39,32 @@ const FortniteUser = ({ params }: { params: IParams }) => {
     fetchPlayerStats();
   }, [id]);
 
+  useEffect(() => {
+    if (user && user.favoriteIds.includes(id!)) {
+      setIsFavorite(true);
+    }
+  }, [user, id]);
+
   const handleModeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedMode(e.target.value);
+  };
+
+  const handleFavoriteClick = async () => {
+    if (!user) {
+      toast.error("You need to be logged in to add favorites.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(`/api/favoriteId/${id}`, {
+        userId: user.id,
+      });
+      setIsFavorite(true);
+      toast.success("Player added to favorites!");
+    } catch (error) {
+      console.error("Error adding player to favorites:", error);
+      toast.error("Failed to add player to favorites.");
+    }
   };
 
   return (
@@ -48,6 +76,12 @@ const FortniteUser = ({ params }: { params: IParams }) => {
             <h1 className="text-3xl text-[#fdda0d] font-bold">
               {playerStats?.name || "Player"}
             </h1>
+            <FaHeart
+              className={`text-4xl cursor-pointer ${
+                isFavorite ? "text-red-500" : "text-gray-500"
+              }`}
+              onClick={handleFavoriteClick}
+            />
           </div>
           <div className="mb-6">
             <label className="text-white font-semibold mr-4">
@@ -66,12 +100,6 @@ const FortniteUser = ({ params }: { params: IParams }) => {
               <option value="ltm">LTM</option>
             </select>
           </div>
-          {/* <button
-            onClick={fetchPlayerStats}
-            className="px-4 py-2 bg-blue-600 font-bold text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
-          >
-            Fetch Player Stats
-          </button> */}
           {playerStats && (
             <div className="mt-6 text-white">
               <div className="bg-gray-800 p-4 rounded-lg shadow-md">
@@ -82,7 +110,7 @@ const FortniteUser = ({ params }: { params: IParams }) => {
                   <div>
                     <p className="text-lg font-bold">Wins:</p>
                     <p className="text-2xl text-white font-bold">
-                      {playerStats.global_stats[selectedMode]?.placetop1 || 0}
+                      {playerStats?.global_stats[selectedMode]?.placetop1 || 0}
                     </p>
                   </div>
                   <div>

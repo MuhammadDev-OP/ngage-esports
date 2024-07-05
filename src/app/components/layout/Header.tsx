@@ -10,7 +10,7 @@ import {
   AiOutlineClose,
   AiOutlinePoweroff,
 } from "react-icons/ai";
-import { FaUserCircle } from "react-icons/fa";
+import { FaHeart, FaUserCircle } from "react-icons/fa";
 import clsx from "clsx";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import { useUser } from "@/app/context/UserContext";
@@ -101,7 +101,7 @@ const Header: React.FC = () => {
                 <a
                   href="/valorant"
                   className="flex items-center p-2 hover:bg-[#243350] rounded-md"
-                  onClick={(e) => handleTrackerClick(e, "/valorant")}
+                  // onClick={(e) => handleTrackerClick(e, "/valorant")}
                 >
                   <TbBrandValorant className="mr-2 text-red-500" />
                   Valorant Tracker
@@ -109,7 +109,7 @@ const Header: React.FC = () => {
                 <a
                   href="/fortnite"
                   className="flex items-center p-2 mt-1 hover:bg-[#243350] rounded-md"
-                  onClick={(e) => handleTrackerClick(e, "/fortnite")}
+                  // onClick={(e) => handleTrackerClick(e, "/fortnite")}
                 >
                   <TbBrandFortnite className="mr-2 text-blue-500" />
                   Fortnite Tracker
@@ -149,11 +149,17 @@ const Header: React.FC = () => {
               {user ? user.username : "login/signup"}
             </h1>
             {user && (
-              <AiOutlinePoweroff
-                size={24}
-                className="ml-2 text-red-500 cursor-pointer"
-                onClick={handleLogout}
-              />
+              <>
+                <AiOutlinePoweroff
+                  size={24}
+                  className="ml-2 text-red-500 cursor-pointer"
+                  onClick={handleLogout}
+                />
+                <FaHeart
+                  className={`text-2xl ml-2 text-red-600 cursor-pointer`}
+                  onClick={() => router.push("/myfavorites")}
+                />
+              </>
             )}
           </div>
         </div>

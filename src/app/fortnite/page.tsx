@@ -145,7 +145,7 @@ const FortniteTracker = () => {
                 </p>
               </div>
             </div>
-            <div className="mt-10 w-[370px] md:w-[400px]">
+            <div className="mt-10 w-[370px] md:w-[420px]">
               <div className="flex rounded-2xl m-5 items-center p-3 bg-[#243350]">
                 <Image
                   src={"/fortnite/fortnite_profile_1.jpg"}
@@ -155,40 +155,36 @@ const FortniteTracker = () => {
                   className="w-[70px] h-[70px]"
                 />
                 <div className="mx-5">
-                  <h1 className="text-xl font-bold">#1 Rated Player</h1>
-                  <p className="text-lg font-normal text-[#fdda0d]">
-                    SkyStrider
-                  </p>
+                  <h1 className="text-lg md:text-xl font-bold">
+                    #1 Rated Player
+                  </h1>
+                  <p className="text-lg font-normal text-[#fdda0d]">Queasy</p>
                 </div>
               </div>
               <div className="flex rounded-2xl m-5 items-center p-3 bg-[#243350]">
                 <Image
-                  src={"/fortnite/fortnite_profile_1.jpg"}
+                  src={"/fortnite/fortnite_profile_2.jpg"}
                   alt={""}
                   width={1920}
                   height={1080}
                   className="w-[70px] h-[70px]"
                 />
                 <div className="mx-5">
-                  <h1 className="text-xl font-bold">#1 Rated Player</h1>
-                  <p className="text-lg font-normal text-[#fdda0d]">
-                    SkyStrider
-                  </p>
+                  <h1 className="text-xl font-bold">#2 Rated Player</h1>
+                  <p className="text-lg font-normal text-[#fdda0d]">Veno</p>
                 </div>
               </div>
               <div className="flex rounded-2xl m-5 items-center p-3 bg-[#243350]">
                 <Image
-                  src={"/fortnite/fortnite_profile_1.jpg"}
+                  src={"/fortnite/fortnite_profile_3.jpg"}
                   alt={""}
                   width={1920}
                   height={1080}
                   className="w-[70px] h-[70px]"
                 />
                 <div className="mx-5">
-                  <h1 className="text-xl font-bold">#1 Rated Player</h1>
-                  <p className="text-lg font-normal text-[#fdda0d]">
-                    SkyStrider
-                  </p>
+                  <h1 className="text-xl font-bold">#3 Rated Player</h1>
+                  <p className="text-lg font-normal text-[#fdda0d]">Dukez</p>
                 </div>
               </div>
             </div>
