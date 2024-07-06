@@ -59,7 +59,7 @@ const TournamentsFortnite = () => {
       return "Invalid time value"; // Return a fallback value instead of throwing an error
     }
 
-    const options = {
+    const options: Intl.DateTimeFormatOptions = {
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
