@@ -13,24 +13,25 @@ const data = [
     image: "/media/news1.jpg",
   },
   {
-    slug: "elevating-user-experience-fivems-six-month-journey-under-rockstar-games",
-    heading: "Another significant acquisition",
+    slug: "The-Science",
+    heading:
+      "The Science of Fortnite Stats: Understanding Key Metrics and Their Impact",
     content:
       "Details about another significant acquisition in the tech industry.",
-    image: "/media/news1.jpg",
+    image: "/news/2.jpg",
   },
   {
-    slug: "elevating-user-experience-fivems-six-month-journey-under-rockstar-games",
-    heading: "Yet another acquisition",
+    slug: "Valorant-Gets",
+    heading: "Valorant Gets a New Skin Called Deadeye",
     content:
       "Information on yet another acquisition that made headlines in 2021.",
-    image: "/media/news1.jpg",
+    image: "/news/4.jpg",
   },
   {
-    slug: "elevating-user-experience-fivems-six-month-journey-under-rockstar-games",
-    heading: "Major tech mergers",
+    slug: "LoL-Patch",
+    heading: "LoL Patch 11.19: The Best Bot Laners and Supporters",
     content: "A rundown of major tech mergers and their implications.",
-    image: "/media/news1.jpg",
+    image: "/news/5.jpg",
   },
 ];
 

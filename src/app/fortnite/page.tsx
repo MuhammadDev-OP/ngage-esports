@@ -7,6 +7,7 @@ import axios from "axios";
 import { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import FortniteSkins from "./components/FortniteSkins";
 
 const FortniteTracker = () => {
   const router = useRouter();
@@ -192,6 +193,12 @@ const FortniteTracker = () => {
         </Wrapper>
       </div>
       <InfoFortnite />
+      <div className="bg-[#1f2435] p-1 md:p-5 mt-10">
+        <h1 className="text-3xl text-center mt-10 font-bold text-[#fdda0d]">
+          SKINS
+        </h1>
+        <FortniteSkins />
+      </div>
     </>
   );
 };

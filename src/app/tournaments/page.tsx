@@ -10,7 +10,7 @@ const Tournaments = () => {
 
   return (
     <Wrapper>
-      <div className="my-5">
+      <div className="flex flex-col justify-center my-5">
         <h1 className="text-4xl font-bold text-center my-5">
           ESports Tournaments
         </h1>
@@ -28,23 +28,44 @@ const Tournaments = () => {
           to see who will emerge as the victor.
         </p>
       </div>
-      <div className="mt-7">
-        <Image
-          src={"/media/csgo-game.jpg"}
-          alt={"img"}
-          width={1920}
-          height={1080}
-          className="w-[300px]"
-        />
+      <div className="">
+        <div className="mt-7">
+          <Image
+            src={"/media/csgo-game.jpg"}
+            alt={"img"}
+            width={1920}
+            height={1080}
+            className="w-[300px]"
+          />
+        </div>
+        <h1
+          onClick={() => {
+            router.push("/tournaments/csgo");
+          }}
+          className="text-yellow-500 hover:text-orange-500 duration-150 cursor-pointer"
+        >
+          CSGO Tournaments
+        </h1>
       </div>
-      <h1
-        onClick={() => {
-          router.push("/tournaments/csgo");
-        }}
-        className="text-yellow-500 hover:text-orange-500 duration-150 cursor-pointer"
-      >
-        CSGO Tournaments
-      </h1>
+      <div>
+        <div className="mt-7">
+          <Image
+            src={"/fortnite/tournament/fortnite_cover.jpg"}
+            alt={"img"}
+            width={1920}
+            height={1080}
+            className="w-[300px]"
+          />
+        </div>
+        <h1
+          onClick={() => {
+            router.push("/tournaments/fortnite");
+          }}
+          className="text-yellow-500 hover:text-orange-500 duration-150 cursor-pointer"
+        >
+          Fortnite Tournaments
+        </h1>
+      </div>
     </Wrapper>
   );
 };
