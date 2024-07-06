@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["cdn2.unrealengine.com"],
+    domains: ["cdn2.unrealengine.com", "media.fortniteapi.io"],
   },
 };
 
