@@ -17,7 +17,7 @@ const Clans = () => {
       >
         <div>
           <h3 className="text-3xl font-bold text-center">
-            Game Clans, Guilds & Teams
+            Game Clans, Guilds & Teamsss
           </h3>
           <p className="text-center mt-3">
             If you enjoy playing video games with others online, then it might
